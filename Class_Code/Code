@@ -1,16 +1,16 @@
     
-class rental_vehicle():
+class rental_vehicle(): # Class to rent Vehicle
     
     def __init__(self):
         pass
         
-    def display():
+    def display(): #Function to display records stored
         rent = open('rent.txt', 'r')
         file1 = rent.read()
         print("Vehicle numbers")
         print(file1)
 
-    def rentvehicle(self):
+    def rentvehicle(self): #Function to rent vehicle
         rent = open('rent.txt', 'a')
         input1 = open('untitled.txt','r')
         outputfile = open('Output.txt','a')
@@ -29,7 +29,7 @@ class rental_vehicle():
         outputfile.close()
 
 
-    def edit(self):
+    def edit(self): #Function to edit vehicle id
         print("Enter the Vehicle number you want to edit")
         input1 = open('untitled.txt','r')
         outputfile = open('Output.txt','a')
@@ -53,7 +53,7 @@ class rental_vehicle():
         outputfile.close()
 
 
-    def delete(self):
+    def delete(self): #Function to delete vehicle id
         print("Enter the Vehicle id you want to delete")
         rent = open("rent.txt", "r")
         input1 = open('untitled.txt','r')
@@ -72,7 +72,7 @@ class rental_vehicle():
         outputfile.close()
         #input1.close()
 
-    def search(self):
+    def search(self): #Function to search vehicle id
         print("Enter the Vehicle id you want to search")
         input1 = open('untitled.txt','r')
         contents = input1.readlines()
@@ -97,13 +97,13 @@ class rental_vehicle():
 object2 = rental_vehicle()
 
 
-class check():
+class check(): #To check entered vehicle number is available 
     
     def __init__(self):
         pass
         
         
-    def check_availability(self):
+    def check_availability(self):#To check entered vehicle number is available 
         rent = open('rent.txt', 'r')
         contents = rent.readlines()
         input1 = open('untitled.txt','r')
@@ -128,7 +128,7 @@ class choose():
         
 object3 = choose()
 
-class options(rental_vehicle, choose):
+class options(rental_vehicle, choose): #Function to choose operation to perform
     
     def __init__(self, choice):
         self.choice = choice
@@ -157,7 +157,7 @@ object1 = options(choice)
 
 i = 0
 a = 0
-for i in range(4):  
+for i in range(4):  #Loop to take multiple input
         print("Enter the userid")
         print("Enter the password")
         input1 = open('untitled.txt','r')
