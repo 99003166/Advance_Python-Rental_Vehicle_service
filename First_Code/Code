@@ -1,4 +1,4 @@
-def choose_option():
+def choose_option(): #Function to choose operations to perform
     print("Choose the option u want to perform")
     print("Enter 1- Rent Vehicle")
     print("Enter 2- Edit")
@@ -10,14 +10,14 @@ def choose_option():
     choice_selection(choice)
 
 
-def display():
+def display(): #Function to display records stored
     rent = open('rent.txt', 'r')
     file1 = rent.read()
     print("Vehicle numbers")
     print(file1)
    
 
-def check_availability(vn):
+def check_availability(vn): #To check entered vehicle number is available 
     rent = open('rent.txt', 'r')
     contents = rent.readlines()  
     for line in contents:  
@@ -25,7 +25,7 @@ def check_availability(vn):
             return 1
             
 
-def rentvehicle():
+def rentvehicle(): #Function to rent vehicle
     rent = open('rent.txt', 'a')
     print("Enter the Vehicle number you want to book")
     vehiclenumber = input()
@@ -37,7 +37,7 @@ def rentvehicle():
         rent.write(vehiclenumber + '\n')
     rent.close()
 
-def edit():
+def edit(): #Function to edit vehicle id
     print("Enter the Vehicle number you want to edit")
     vehiclenumber = input()
     rent = open("rent.txt", "r")
@@ -53,7 +53,7 @@ def edit():
     rent.close()
 
 
-def delete():
+def delete(): #Function to delete vehicle id
     vehiclenumber = input("Enter the Vehicle id you want to delete")
     rent = open("rent.txt", "r")
     lines = rent.readlines()
@@ -65,7 +65,7 @@ def delete():
             rent.write(line)
     rent.close()
 
-def search():
+def search(): #Function to search vehicle id
     vehiclenumber = input("Enter the Vehicle id you want to search")
     rent = open('rent.txt', 'r')
     contents = rent.readlines()  
@@ -78,7 +78,7 @@ def search():
             exit()
 
 
-def choice_selection(choice):
+def choice_selection(choice): #Function to choose operation to perform
     if choice == '1':
         rentvehicle()
     elif choice == '2':
@@ -97,7 +97,7 @@ print("Enter the password")
 userid = input()
 password = input()
 
-if ((userid == "3166") & (password == "python")) :
+if ((userid == "3166") & (password == "python")) : # used to check user credentials 
     print("Login Successfull")
     choose_option()
     
