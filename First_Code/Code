@@ -1,0 +1,105 @@
+def choose_option():
+    print("Choose the option u want to perform")
+    print("Enter 1- Rent Vehicle")
+    print("Enter 2- Edit")
+    print("Enter 3- Search")
+    print("Enter 4- Delete")
+    print("Enter 5- View")
+    print("Enter choice:")
+    choice = input()
+    choice_selection(choice)
+
+
+def display():
+    rent = open('rent.txt', 'r')
+    file1 = rent.read()
+    print("Vehicle numbers")
+    print(file1)
+   
+
+def check_availability(vn):
+    rent = open('rent.txt', 'r')
+    contents = rent.readlines()  
+    for line in contents:  
+        if vn in line:
+            return 1
+            
+
+def rentvehicle():
+    rent = open('rent.txt', 'a')
+    print("Enter the Vehicle number you want to book")
+    vehiclenumber = input()
+    check = check_availability(vehiclenumber)
+    if check == 1:
+          print("Vehicle already booked enter different Vehicle number") 
+    else:
+        print("Vehicle Booked Successfully")
+        rent.write(vehiclenumber + '\n')
+    rent.close()
+
+def edit():
+    print("Enter the Vehicle number you want to edit")
+    vehiclenumber = input()
+    rent = open("rent.txt", "r")
+    lines = rent.readlines()
+    rent.close()
+
+    rent = open("rent.txt", "w")
+    for line in lines:
+        if line.strip("\n") != vehiclenumber:
+            rent.write(line)
+    vn1 = input("Enter the new vehiclenumber")
+    rent.write(vn1 + '\n')
+    rent.close()
+
+
+def delete():
+    vehiclenumber = input("Enter the Vehicle id you want to delete")
+    rent = open("rent.txt", "r")
+    lines = rent.readlines()
+    rent.close()
+
+    rent = open("rent.txt", "w")
+    for line in lines:
+        if line.strip("\n") != vehiclenumber:
+            rent.write(line)
+    rent.close()
+
+def search():
+    vehiclenumber = input("Enter the Vehicle id you want to search")
+    rent = open('rent.txt', 'r')
+    contents = rent.readlines()  
+    for line in contents:  
+        if vehiclenumber in line:
+            print("Vehicle id found in the records")
+            exit()
+        else:
+            print("No vehicle found")
+            exit()
+
+
+def choice_selection(choice):
+    if choice == '1':
+        rentvehicle()
+    elif choice == '2':
+        edit()
+    elif choice == '3':
+        search()
+    elif choice == '4':
+        delete()
+    elif choice == '5':
+        display()
+    else:
+        exit()
+
+print("Enter the userid")
+print("Enter the password")
+userid = input()
+password = input()
+
+if ((userid == "3166") & (password == "python")) :
+    print("Login Successfull")
+    choose_option()
+    
+else:
+    print("Enter valid userid/password")
