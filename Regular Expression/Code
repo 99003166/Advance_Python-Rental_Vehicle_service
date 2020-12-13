@@ -1,0 +1,15 @@
+import re
+
+result = re.match("[a-z 0-9]+@[a-z]+.[a-z]{3}", 'shrinivasdevaraddi98@gmail.com')
+result1 = re.match("[a-z r\d (@gmail.com)$]+", 'shrinivasdevaraddi98@gmail.com')
+result2 = re.match("[A-Z r\d (@gmail.com)$]+", 'shrinivasdevaraddi98@gmail.com')
+
+print(result)
+print(result1)
+print(result2)
+
+line = "Hello Python"
+
+p = re.compile('[a-e r\d]+')
+
+print(p.findall("Hello 1234 Python"))
